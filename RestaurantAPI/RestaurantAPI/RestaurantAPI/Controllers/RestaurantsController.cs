@@ -113,7 +113,7 @@ namespace RestaurantAPI.Controllers
             catch (Exception)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
     }
