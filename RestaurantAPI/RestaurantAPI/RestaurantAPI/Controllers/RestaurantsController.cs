@@ -110,7 +110,7 @@ namespace RestaurantAPI.Controllers
             {
                 return NotFound(ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
