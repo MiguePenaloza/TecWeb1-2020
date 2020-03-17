@@ -103,10 +103,10 @@ namespace TiendaMusicalAPI.Controllers
             {
                 return NotFound(ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message); ;
             }
         }
     }
