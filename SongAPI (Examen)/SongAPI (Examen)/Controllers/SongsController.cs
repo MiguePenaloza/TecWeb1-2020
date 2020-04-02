@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SongAPI_Examen.Exceptions;
 using SongAPI_Examen.Models;
 using SongAPI_Examen.Services;
 using System;
@@ -23,6 +24,10 @@ namespace SongAPI_Examen.Controllers
             try
             {
                 return Ok(service.GetSongs(orderBy));
+            }
+            catch (BadOperationRequest ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception)
             {

@@ -97,13 +97,13 @@ namespace SongAPI_Examen.Data.Repository
             switch (orderBy)
             {
                 case "id":
-                    return songs.OrderBy(s => s.Id);
+                    return songs.OrderByDescending(s => s.Id);
                 case "title":
-                    return songs.OrderBy(s => s.Title);
+                    return songs.OrderByDescending(s => s.Title);
                 case "artist":
-                    return songs.OrderBy(s => s.Artist);
+                    return songs.OrderByDescending(s => s.Artist);
                 case "votes":
-                    return songs.OrderBy(s => s.AmountVotes);
+                    return songs.OrderByDescending(s => s.AmountVotes);
                 default:
                     return songs;
             }

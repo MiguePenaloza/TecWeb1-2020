@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace SongAPI_Examen.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [JsonIgnore]
         public int SongId { get; set; }
     }
 }
