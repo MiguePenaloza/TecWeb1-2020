@@ -59,7 +59,7 @@ namespace SongAPI_Examen.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var newVote = service.CreateVote(songId, vote);
+                var newVote = service.CreateVoteManager(songId, vote);
                 return Created($"api/songs/{songId}/votes/{vote.Id}", newVote);
             }
             catch (Exception)

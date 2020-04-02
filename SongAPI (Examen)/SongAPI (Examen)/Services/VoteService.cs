@@ -20,6 +20,12 @@ namespace SongAPI_Examen.Services
         public VoteModel CreateVote(int songId, VoteModel vote)
         {
             ValidateSong(songId);
+            return repository.CreateVote(songId, vote);
+        }
+
+        public VoteModel CreateVoteManager(int songId, VoteModel vote)
+        {
+            ValidateSong(songId);
             return repository.CreateVoteManager(songId, vote);
         }
 

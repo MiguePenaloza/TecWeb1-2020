@@ -12,5 +12,6 @@ namespace SongAPI_Examen.Services
         IEnumerable<VoteModel> GetVotes(int songId, string orderBy = "id");
 
         void ValidateSong(int id);
+        VoteModel CreateVoteManager(int songId, VoteModel vote);
     }
 }

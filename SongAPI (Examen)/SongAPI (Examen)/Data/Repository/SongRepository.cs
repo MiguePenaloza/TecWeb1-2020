@@ -47,27 +47,43 @@ namespace SongAPI_Examen.Data.Repository
 
         public VoteModel CreateVote(int songId, VoteModel vote)
         {
-            var newId = votes.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
-            vote.Id = newId;
+            var voteNull = votes.OrderByDescending(v => v.Id).FirstOrDefault();
+            if (voteNull == null) 
+            {
+                vote.Id = 1;
+            }
+            else
+            {
+                var newId = votes.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
+                vote.Id = newId;
+            }
+            vote.SongId = songId;
             votes.Add(vote);
 
             var song = songs.FirstOrDefault(s => s.Id == songId);
             song.AmountVotes = song.AmountVotes + 1;
-
             return vote;
         }
 
         public VoteModel CreateVoteManager(int songId, VoteModel vote)
         {
-            var newId = votes.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
-            vote.Id = newId;
+            var voteNull = votes.OrderByDescending(v => v.Id).FirstOrDefault();
+            if (voteNull == null)
+            {
+                vote.Id = 1;
+            }
+            else
+            {
+                var newId = votes.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
+                vote.Id = newId;
+            }
+            vote.SongId = songId;
             votes.Add(vote);
 
             var songManager = songs.FirstOrDefault(s => s.Id == songId);
             var songMaxAmountVotes = songs.OrderByDescending(s => s.AmountVotes).FirstOrDefault().AmountVotes + 1;
 
             songManager.AmountVotes = songMaxAmountVotes;
-
             return vote;
         }
 
