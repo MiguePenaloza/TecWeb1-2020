@@ -29,6 +29,7 @@ namespace SongAPI__Examen_
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<ISongService, SongService>();
+            services.AddTransient<IVoteService, VoteService>();
             services.AddSingleton<ISongRepository, SongRepository>();
         }
 
