@@ -33,6 +33,26 @@ namespace SongAPI.Data.Repository
                 Length = 3.13
             });
 
+            songs.Add(new SongEntity()
+            {
+                Id = 3,
+                Name = "Back in Black",
+                Artist = "AC DC",
+                Genre = "Rock",
+                Album = "Back in Black",
+                Length = 4.13
+            });
+
+            songs.Add(new SongEntity()
+            {
+                Id = 4,
+                Name = "We are the Champions",
+                Artist = "Queen",
+                Genre = "Pop Rock",
+                Album = "What a man can do",
+                Length = 2.3
+            });
+
             votes.Add(new VoteEntity()
             {
                 Id = 1,
