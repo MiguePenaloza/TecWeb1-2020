@@ -1,0 +1,10 @@
+
+.game {
+    background: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.is-sold-out {
+    text-decoration: line-through;
+}

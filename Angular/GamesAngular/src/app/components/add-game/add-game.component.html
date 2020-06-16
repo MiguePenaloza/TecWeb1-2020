@@ -1,0 +1,16 @@
+<form (ngSubmit)="addNewGame()">
+    <br>
+    <input type="text" name="name" [(ngModel)]="name" placeholder="Add name">
+    <br>
+    <br>
+    <input type="number" name="price" [(ngModel)]="price" placeholder="Add price">
+    <br>
+    <br>
+    <label for="isSoldOut">Is Sold Out?</label>
+    <input type="checkbox" name="isSoldOut" [(ngModel)]="isSoldOut"/>
+    {{isSoldOut}}
+    <br>    
+    <br>
+    <input type="submit" value="Submit" class="btn">
+    <br>
+</form>

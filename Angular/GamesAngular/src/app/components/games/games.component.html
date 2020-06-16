@@ -1,0 +1,13 @@
+<div>
+    <app-add-game (addGame)="addGameSend($event)"></app-add-game> 
+    <app-game-item 
+        *ngFor="let game of gamesList" 
+        [gameInput]="game">
+    </app-game-item>
+    <form (ngSubmit)="deleteSoldOutGames()">
+    <br>
+    <br>
+    <input type="submit" value="Submit" class="btn">
+    <br>
+    </form>
+</div>
