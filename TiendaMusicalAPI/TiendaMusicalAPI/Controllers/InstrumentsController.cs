@@ -60,6 +60,11 @@ namespace TiendaMusicalAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                
                 var newInstrument = service.CreateInstrument(instrument);
                 return Created($"/api/Instruments/{newInstrument.Id}", newInstrument);
             }
