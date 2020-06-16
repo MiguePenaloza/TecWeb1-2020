@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "31963722-6bc2-4148-bbf4-8faa9b096a97",
+		"name": "StoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/Products",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"PS4\",\r\n        \"price\": 400\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/Products",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPurchases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/Purchases",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePurchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \t\"productId\": 1,\r\n    \"quantity\": 1,\r\n    \"userName\": \"Sandra\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/Purchases",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStockPurchases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/StockPurchases",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"StockPurchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateStockPurchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \t\"date\": \"2020-02-04T00:00:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/StockPurchases",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"StockPurchases"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
