@@ -1,0 +1,15 @@
+<div>
+    <form class="form" (ngSubmit)="onSubmit()">
+        <input type="text" name="name" [(ngModel)]="song.name" placeholder="Add title">
+        <h2>{{song.name}}</h2>
+        <input type="text" name="artist" [(ngModel)]="song.artist" placeholder="Add an artist">
+        <h2>{{song.artist}}</h2>
+        <input type="number" name="length" [(ngModel)]="song.length" placeholder="Add a length">
+        <h2>{{song.length}}</h2>
+        <input type="text" name="album" [(ngModel)]="song.album" placeholder="Add an album">
+        <h2>{{song.album}}</h2>
+        <input type="text" name="genre" [(ngModel)]="song.genre" placeholder="Add a genre">
+        <h2>{{song.genre}}</h2>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>

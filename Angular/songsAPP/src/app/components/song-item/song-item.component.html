@@ -1,0 +1,9 @@
+<div [ngClass]="setClasses()">
+    <p>
+        {{songInput.id}} -- {{songInput.name}} -- {{songInput.artist}}
+        
+        <button (click)="onDelete()" class="del">x</button>
+        <button (click)="onEdit(songInput)" class="edit">Edit</button>
+    </p> 
+    
+</div>

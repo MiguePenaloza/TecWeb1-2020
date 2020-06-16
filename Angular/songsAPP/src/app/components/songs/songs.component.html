@@ -1,0 +1,9 @@
+<div>
+    <app-add-song (songAdd)="addSongAndSend($event)"></app-add-song>
+    <app-song-item 
+    *ngFor="let song of songsList"
+    [songInput]="song"
+    (songDelete)="onDelete($event)">
+
+    </app-song-item>
+</div>

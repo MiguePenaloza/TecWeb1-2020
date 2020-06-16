@@ -1,0 +1,10 @@
+<form class="form" (ngSubmit)="onSubmit()">
+    <input type="text" name="title" [(ngModel)]="title" placeholder="Add title">
+    <h2>{{title}}</h2>
+    <input type="text" name="year" [(ngModel)]="year" placeholder="Add year">
+    <h2>{{year}}</h2>
+    <input type="text" name="pages" [(ngModel)]="pages" placeholder="Add pages">
+    <h2>{{pages}}</h2>
+    <input type="submit" value="Submit" class="btn">
+</form>
+

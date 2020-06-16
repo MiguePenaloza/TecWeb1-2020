@@ -1,0 +1,14 @@
+<div>
+    <form (ngSubmit)="onSubmit(book)">
+        <input type="text" name="title" [(ngModel)]="book.title">
+        {{book.title}}
+        <br>
+        <input type="number" name="year" [(ngModel)]="book.year">
+        {{book.year}}
+        <br>
+        <input type="number" name="pages" [(ngModel)]="book.pages">
+        {{book.pages}}
+        <br>
+        <input type="submit" value="Save">
+    </form>
+</div>

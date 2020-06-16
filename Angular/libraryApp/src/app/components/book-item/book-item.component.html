@@ -1,0 +1,9 @@
+<div [ngClass]="setClasses()">
+    <p>
+        {{bookInput.id}} -- {{bookInput.title}} -- {{bookInput.pages}}
+        
+        <button (click)="onDelete()" class="del">x</button>
+        <button (click)="onEdit(bookInput)" class="edit">Edit</button>
+    </p> 
+    
+</div>
