@@ -5,6 +5,7 @@ import { StoresComponent } from './components/stores/stores.component';
 
 const routes: Routes = [
   {path:'', component: StoresComponent}
+  // {path:'todos/:todoId', component:EditTodoComponent}
 ];
 
 @NgModule({
