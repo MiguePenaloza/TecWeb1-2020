@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Store } from 'src/app/models/Srore';
 
 @Component({
   selector: 'app-store-item',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreItemComponent implements OnInit {
 
+  @Input() storeInput :Store;
+  
   constructor() { }
 
   ngOnInit(): void {
