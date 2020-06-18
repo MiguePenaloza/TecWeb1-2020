@@ -14,7 +14,7 @@ namespace MusicStoreAPI.Controllers
     //[Authorize(Roles = "SuperAdmin")]    // Protege a todos los metodos del controlador
     //[Authorize(Roles = "Admin")]         // Esto es un AND donde tendra que ser SuperAdmin y Admin
 
-    [Authorize(Roles = "SuperAdmin, Admin")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     [Route("api/[controller]")]
     public class StoresController : Controller
     {
@@ -58,7 +58,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<ActionResult<StoreModel>> CreateStoreAsync([FromBody]StoreModel newStore)
         {
@@ -86,7 +86,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<StoreModel>> UpdateStoreAsync(int id, [FromBody]StoreModel store)
         {
@@ -126,7 +126,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<bool>> DeleteStoreAsync(int id)
         {
