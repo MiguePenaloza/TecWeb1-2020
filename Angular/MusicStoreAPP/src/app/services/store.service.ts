@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class StoreService {
 
-  storesUrl :string = '';
+  storesUrl :string = 'https://localhost:44317/api/Stores';
   
   constructor(private http :HttpClient) { }
 
