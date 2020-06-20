@@ -15,6 +15,7 @@ const httpOptions = {
 export class StoreService {
 
   storesUrl :string = 'https://localhost:44317/api/Stores';
+  storesQueryParam :string = '?orderBy=name';
   
   constructor(private http :HttpClient) { }
 
