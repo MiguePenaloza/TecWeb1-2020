@@ -14,6 +14,7 @@ namespace MusicStoreAPI.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public int? Phone { get; set; }
+        public string ImageUrl { get; set; }
         public virtual IEnumerable<InstrumentModel> Instruments { get; set; }
     }
 }

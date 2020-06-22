@@ -15,6 +15,7 @@ namespace MusicStoreAPI.Data.Entities
         public string Name { get; set; }
         public string Address { get; set; }
         public int? Phone { get; set; }
+        public string ImageUrl { get; set; }
         public virtual ICollection<InstrumentEntity> Instruments { get; set; }
     }
 }
