@@ -56,7 +56,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<ActionResult<InstrumentModel>> CreateInstrumentAsync(int storeId, [FromBody]InstrumentModel newInstrument)
         {
@@ -83,7 +83,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<bool>> UpdateInstrumentAsync(int storeId, int id, [FromBody]InstrumentModel instrument)
         {
@@ -109,6 +109,10 @@ namespace MusicStoreAPI.Controllers
                         {
                             return BadRequest(state.Value.Errors);
                         }
+                        if (state.Key == nameof(instrument.ImageUrl) && state.Value.Errors.Count > 0)
+                        {
+                            return BadRequest(state.Value.Errors);
+                        }
                     }
                 }
                 return Ok(await service.UpdateInstrumentAsync(storeId, id, instrument));
@@ -123,7 +127,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteInstrumentAsync(int storeId, int id)
         //public ActionResult<bool> DeleteInstrument(int storeId, int id)
