@@ -73,6 +73,12 @@ namespace MusicStoreAPI.Data.Repository
                 case "price":
                     query.OrderBy(i => i.Price);
                     break;
+                case "description":
+                    query.OrderBy(i => i.Description);
+                    break;
+                case "descriptionAndprice":
+                    query.OrderBy(i => i.Description).OrderBy(i => i.Price);
+                    break;
                 default:
                     break;
             }

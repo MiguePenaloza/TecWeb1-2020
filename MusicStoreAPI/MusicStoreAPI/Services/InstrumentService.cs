@@ -14,7 +14,7 @@ namespace MusicStoreAPI.Services
     {
         private IMusicStoreRepository repository;
         private readonly IMapper mapper;
-        private List<string> allowedSortValues = new List<string> { "id", "name", "price" };
+        private List<string> allowedSortValues = new List<string> { "id", "name", "price", "description", "descriptionAndprice" };
 
         public InstrumentService(IMusicStoreRepository repository, IMapper mapper)
         {
@@ -89,7 +89,9 @@ namespace MusicStoreAPI.Services
             updateInstrument.StoreId = storeId;
             updateInstrument.Price = instrument.Price ?? actualInstrument.Price;
             updateInstrument.Description = instrument.Description ?? actualInstrument.Description;
-            
+            updateInstrument.ImageUrl = instrument.ImageUrl ?? actualInstrument.ImageUrl;
+
+
             repository.UpdateInstrument(mapper.Map<InstrumentEntity>(instrument));
             
             var res = await repository.SaveChangesAsync();
