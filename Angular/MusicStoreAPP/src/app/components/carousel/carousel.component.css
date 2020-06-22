@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(59, 194, 171);
+    padding-top: 180px;
+    padding-bottom: 40px;
+}
+
+.carousel-item {
+  width: 1110px; 
+  height: 500px;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(1,1);
+    }
+    to {
+        -webkit-transform: scale(1.5,1.5);
+    }
+}
+
+/* Standard syntax */
+@keyframes zoom {
+   from {
+        transform: scale(1,1);
+   }
+   to {
+        transform: scale(1.5,1.5);
+   }
+}
+
+.img-zoom {
+    -webkit-animation: zoom 5s; /* Chrome, Safari, Opera */
+    animation: zoom 10s;
+}
+
+.description {
+    font-weight: normal;
+}
+
+span.badge-secondary {
+    color: #fff;
+    background-color: #343a4098;
+}
+
+#carousel-indicator.carousel-indicators {
+    background-color: #343a4036;
+    margin-right: 38%;
+    margin-left: 38%;
+}
