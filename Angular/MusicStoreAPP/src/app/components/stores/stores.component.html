@@ -1,7 +1,8 @@
 <div>
-    <app-store-item 
-    *ngFor = "let store of storesList"
-    [storeInput] = "store">
+    <app-carousel></app-carousel>
+    <div class="flex-container">
+        <app-store-item *ngFor="let store of storesList" [storeInput]="store">
 
-    </app-store-item>
+        </app-store-item>
+    </div>
 </div>
