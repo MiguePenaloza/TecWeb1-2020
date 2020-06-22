@@ -15,6 +15,7 @@ namespace MusicStoreAPI.Models
         public string Description { get; set; }
         [Range(0, 1000000)]
         public int? Price { get; set; }
+        public string ImageUrl { get; set; }
         public int StoreId { get; set; }
     }
 }
