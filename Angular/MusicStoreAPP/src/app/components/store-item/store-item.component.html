@@ -1,6 +1,16 @@
-<div class="text-center bg-light">
+<div class="item-container">
+    <div class="text-center flex-container-item">
+        <button type="button" class="btn" (click)="onEdit(storeInput)">
+            <img src={{storeInput.imageUrl}}>
+        </button>
+        <div class="description-center">
+            <h3>
+                <span class="badge badge-secondary">{{storeInput.name}}</span>
+            </h3>
+        </div>
+        <div class="description-center-pa">
+            {{storeInput.address}} | {{storeInput.phone}}
+        </div>
 
-    {{storeInput.name}}
-    <img src={{storeInput.imageUrl}}>
-
+    </div>
 </div>
