@@ -9,7 +9,8 @@ import { StoresComponent } from './components/stores/stores.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { StoreItemComponent } from './components/store-item/store-item.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { StoreUnitComponent } from './components/store-unit/store-unit.component';
+import { InstrumentsComponent } from './components/instruments/instruments.component';
+import { InstrumentItemComponent } from './components/instrument-item/instrument-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { StoreUnitComponent } from './components/store-unit/store-unit.component
     FooterComponent,
     StoreItemComponent,
     CarouselComponent,
-    StoreUnitComponent
+    InstrumentsComponent,
+    InstrumentItemComponent
   ],
   imports: [
     BrowserModule,

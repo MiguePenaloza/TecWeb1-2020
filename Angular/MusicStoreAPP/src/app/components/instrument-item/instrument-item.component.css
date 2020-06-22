@@ -1,0 +1,41 @@
+.flex-container .flex-cotainer-item {
+    background-color: #4d3939;
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.item-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 50px 50px;
+    background-color: cornsilk;
+}
+
+img { 
+    width: 360px;
+    left: 20px;
+    top: 20px;
+    height: 400px;
+    opacity: 0.9;
+    position: absolute;
+    z-index: 1;
+}
+
+.description-center {
+    position: absolute;
+    width: 100%;
+    top: 430px;
+    font-size: 18px;
+}
+
+.description-center-pa {
+    position: absolute;
+    bottom: 5px;
+    font-size: 18px;
+    width: 100%;
+}
