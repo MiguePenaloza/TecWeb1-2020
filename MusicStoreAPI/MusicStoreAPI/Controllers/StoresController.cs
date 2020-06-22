@@ -112,6 +112,10 @@ namespace MusicStoreAPI.Controllers
                         {
                             return BadRequest(state.Value.Errors);
                         }
+                        if (state.Key == nameof(store.ImageUrl) && state.Value.Errors.Count > 0)
+                        {
+                            return BadRequest(state.Value.Errors);
+                        }
                     }
                 }
                 return Ok(await service.UpdateStoreAsync(id, store));
