@@ -20,11 +20,11 @@ export class StoreService {
   constructor(private http :HttpClient) { }
 
   getStores() :Observable<Store[]> {
-    return this.http.get<Store[]>(this.storesUrl);
+    return this.http.get<Store[]>(this.storesUrl+this.storesQueryParam);
   }
 
   getStore(id :string) :Observable<Store> {
-    return this.http.get<Store>(this.storesUrl);
+    return this.http.get<Store>(`${this.storesUrl}/${id}`);
   }
 
   addStore(storeToAdd :Store) :Observable<Store> {
