@@ -79,8 +79,9 @@ namespace MusicStoreAPI.Services
             updateStore.Id = id;
             updateStore.Address = store.Address ?? actualStore.Address;
             updateStore.Phone = store.Phone ?? actualStore.Phone;
+            updateStore.ImageUrl = store.ImageUrl ?? actualStore.ImageUrl;
 
-             repository.UpdateStore(mapper.Map<StoreEntity>(updateStore));
+            repository.UpdateStore(mapper.Map<StoreEntity>(updateStore));
 
             var res = await repository.SaveChangesAsync();
             if (res)
