@@ -27,11 +27,11 @@ export class HeaderComponent implements OnInit {
       //document.getElementById("navbar").style.padding = "30px 10px";
       document.getElementById("navbar").style.background = "rgb(0,0,0,0.8)";
       //document.getElementById("navbar").style.background = "transparent";
-      document.getElementById("logo").style.fontSize = "25px";
+      //document.getElementById("logo").style.fontSize = "25px";
     } else {
       //document.getElementById("navbar").style.padding = "80px 10px";
       document.getElementById("navbar").style.background = "#000000";
-      document.getElementById("logo").style.fontSize = "35px";
+      //document.getElementById("logo").style.fontSize = "35px";
     }
   }
 }
