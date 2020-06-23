@@ -1,7 +1,10 @@
 <div>
     <app-carousel></app-carousel>
     <div class="flex-container">
-        <app-store-item *ngFor="let store of storesList" [storeInput]="store">
+        <app-store-item 
+        *ngFor="let store of storesList" 
+        [storeInput]="store" 
+        (storeDeleteOutput)="deleteStore($event)">
 
         </app-store-item>
     </div>
