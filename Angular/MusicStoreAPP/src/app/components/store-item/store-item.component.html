@@ -1,8 +1,9 @@
 <div class="item-container">
     <div class="text-center flex-container-item">
-        <button type="button" class="btn" (click)="onEdit(storeInput)">
+        <a (click)="onEdit(storeInput)">
             <img src={{storeInput.imageUrl}}>
-        </button>
+        </a>
+        <button class="del">x</button>
         <div class="description-center">
             <h3>
                 <span class="badge badge-secondary">{{storeInput.name}}</span>
