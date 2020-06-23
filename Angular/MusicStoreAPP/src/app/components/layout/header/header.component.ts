@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
 
   doSomethingOnInternalScroll($event: Event) {
     // do some stuff here when the window is scrolled
-    const verticalOffset = window.pageYOffset
-      || document.documentElement.scrollTop
-      || document.body.scrollTop || 0;
-    console.log(verticalOffset);
+    // const verticalOffset = window.pageYOffset
+    //   || document.documentElement.scrollTop
+    //   || document.body.scrollTop || 0;
+    // console.log(verticalOffset);
 
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
       //document.getElementById("navbar").style.padding = "30px 10px";
