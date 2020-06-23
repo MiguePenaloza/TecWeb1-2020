@@ -10,7 +10,7 @@ namespace MusicStoreAPI.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage = "Invalid name length")]
+        [MaxLength(30, ErrorMessage = "Invalid name length")]
         public string Name { get; set; }
         public string Description { get; set; }
         [Range(0, 1000000)]
