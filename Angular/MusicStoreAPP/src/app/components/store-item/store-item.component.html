@@ -3,7 +3,7 @@
         <a (click)="onEdit(storeInput)">
             <img src={{storeInput.imageUrl}}>
         </a>
-        <button class="del">x</button>
+        <button class="del" (click)="onDelete()">x</button>
         <div class="description-center">
             <h3>
                 <span class="badge badge-secondary">{{storeInput.name}}</span>
