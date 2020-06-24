@@ -17,6 +17,7 @@ namespace MusicStoreAPI.Data.Entities
         public string Description { get; set; }
         public int? Price { get; set; }
         public string ImageUrl { get; set; }
+        public string ProductDetails { get; set; }
         [ForeignKey("StoreId")]
         public virtual StoreEntity Store { get; set; }
     }
