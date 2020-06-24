@@ -13,18 +13,23 @@ import { InstrumentService } from 'src/app/services/instrument.service';
 export class InstrumentsComponent implements OnInit {
 
   store :Store;
+  originalStore :Store;
   instrumentsList :Instrument[];
   storeId :string = this.route.snapshot.paramMap.get("storeId");
 
   constructor(private storeService :StoreService, private instrumentService :InstrumentService, private route:ActivatedRoute) { 
     this.store = new Store();
+    this.originalStore = new Store();
   }
   
 
   ngOnInit(): void {
-
     this.storeService.getStore(this.storeId).subscribe( s => {
       this.store = s;
+    })
+
+    this.storeService.getStore(this.storeId).subscribe( s => {
+      this.originalStore = s;
     })
 
     this.instrumentService.getInstruments(this.storeId).subscribe( instruments => {
@@ -45,4 +50,19 @@ export class InstrumentsComponent implements OnInit {
     }
   }
 
+  onCancel() {
+    this.storeService.getStore(this.storeId).subscribe( s => {
+      this.store = s;
+    });
+    document.getElementById("confirmation-message").innerHTML = "no saved";
+  }
+
+  onSubmit(updatedStore :Store) {
+    this.storeService.updateStore(updatedStore).subscribe( response => {
+      if (response) {
+        document.getElementById("confirmation-message").innerHTML = "<h5>Cambios Guardados!!</h5>";
+        document.getElementById("confirmation-message").setAttribute("class", "offset-3 badge badge-success");
+      };
+    });
+  };
 }
