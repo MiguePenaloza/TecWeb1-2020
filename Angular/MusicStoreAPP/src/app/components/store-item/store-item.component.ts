@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from 'src/app/models/Srore';
 import { Router } from '@angular/router';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-store-item',
@@ -14,7 +15,8 @@ export class StoreItemComponent implements OnInit {
   
   constructor(private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+       
   }
 
   onEdit(store :Store) {
@@ -23,5 +25,5 @@ export class StoreItemComponent implements OnInit {
 
   onDelete() {
     this.storeDeleteOutput.emit(this.storeInput);    
-  }
+  }  
 }

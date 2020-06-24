@@ -1,9 +1,10 @@
-<div class="item-container">
+<div id="main" class="item-container">
     <div class="text-center flex-container-item">
         <a (click)="onEdit(storeInput)">
             <img src={{storeInput.imageUrl}}>
         </a>
-        <button class="del" (click)="onDelete()">x</button>
+        <button class="del bg-danger" (click)="onDelete()"><i class="far fa-trash-alt"></i></button>
+
         <div class="description-center">
             <h3>
                 <span class="badge badge-secondary">{{storeInput.name}}</span>
