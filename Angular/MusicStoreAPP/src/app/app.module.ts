@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { StoreItemComponent } from './components/store-item/store-item.component
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { InstrumentsComponent } from './components/instruments/instruments.component';
 import { InstrumentItemComponent } from './components/instrument-item/instrument-item.component';
+import { InstrumentEditComponent } from './components/instrument-edit/instrument-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +22,14 @@ import { InstrumentItemComponent } from './components/instrument-item/instrument
     StoreItemComponent,
     CarouselComponent,
     InstrumentsComponent,
-    InstrumentItemComponent
+    InstrumentItemComponent,
+    InstrumentEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
