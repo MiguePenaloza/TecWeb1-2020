@@ -15,4 +15,7 @@
       text-decoration: none;
   }
 
+  #login {
+    cursor: pointer;
+  }
   
