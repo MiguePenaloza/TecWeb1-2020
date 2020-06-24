@@ -20,7 +20,6 @@ export class StoresComponent implements OnInit {
   }
 
   deleteStore(storeToDelete: Store): void {
-
     if (confirm('Are you sure you want to delete this Store?!')) {
       this.storesList = this.storesList.filter(stores => stores.id != storeToDelete.id);
       //delete from backend
