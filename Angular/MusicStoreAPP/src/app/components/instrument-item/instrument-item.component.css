@@ -16,14 +16,33 @@
     background-color: cornsilk;
 }
 
-img { 
+img {
     width: 235px;
+    left: 0px;
+    top: 0px;
+    height: 250px;
+    position: absolute;
+    z-index: -1; 
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
     left: 20px;
     top: 20px;
+    width: 235px;
     height: 250px;
-    opacity: 0.9;
-    position: absolute;
-    z-index: 1;
+    z-index: 3;
+}
+
+.zoom {
+    transition: transform 2s;
+}
+  
+.zoom:hover {
+    -ms-transform: scale(1.105); /* IE 9 */
+    -webkit-transform: scale(1.105); /* Safari 3-8 */
+    transform: scale(1.08); 
 }
 
 .description-center {
@@ -42,12 +61,25 @@ img {
 
 .del {
     position: absolute;
-    font-size: large;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
-    background: #ff0000;
     color: #fff;
     border: none;
     top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.edit {
+    position: absolute;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    border: none;
+    top: 41px;
+    padding-right: 2.5px;
+    padding-bottom: 3px;
     right: 20px;
     cursor: pointer;
     z-index: 4;

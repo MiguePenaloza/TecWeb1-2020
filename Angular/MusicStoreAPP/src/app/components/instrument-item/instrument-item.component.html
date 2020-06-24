@@ -1,7 +1,10 @@
 <div class="item-container">
     <div class="text-center flex-container-item">
-        <img src={{instrumentInput.imageUrl}}>
-        <button class="del" (click)="onDelete()">x</button>
+        <div  class="zoom image-container">
+            <a (click)="onEdit(instrumentInput)"><img src={{instrumentInput.imageUrl}}></a>
+        </div>
+        <button class="del bg-danger" (click)="onDelete()"><i class="far fa-trash-alt"></i></button>
+        <button class="edit bg-primary" (click)="onDelete()"><i class="far fa-edit"></i></button>
         <div class="description-center">
             <h3>
                 <span class="badge badge-secondary">{{instrumentInput.name}}</span>
