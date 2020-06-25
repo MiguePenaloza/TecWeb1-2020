@@ -61,25 +61,11 @@ img {
 
 .del {
     position: absolute;
-    font-size: small;
+    font-size: large;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     border: none;
     top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 4;
-}
-
-.edit {
-    position: absolute;
-    font-size: small;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    border: none;
-    top: 41px;
-    padding-right: 2.5px;
-    padding-bottom: 3px;
     right: 20px;
     cursor: pointer;
     z-index: 4;
