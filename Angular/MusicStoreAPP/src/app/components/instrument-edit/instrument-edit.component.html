@@ -1,38 +1,130 @@
 <body>
-    <div class="text-center mb-4">
+    <div class="text-center mb-4 container">
         <div class="img-container">
             <div class="img-div">
                 <img src={{instrument.imageUrl}}>
-                <button class="edit bg-primary" data-toggle="modal" data-target="#editStoreModal">
+                <button class="edit bg-primary" data-toggle="modal" data-target="#editInstrumentModal">
                     <i class="far fa-edit"></i>
                 </button>
-                <div class="description">
-                    <h2>Stacked form</h2>
-                    <form class="form-description">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" readonly class="ml-4 form-control-plaintext" [(ngModel)]="instrument.name"
-                                name="name">
+                <div class="description align-middle">
+                    <h1>{{instrument.name}}</h1>
+                    <form class="form-inline">
+                        <h6>
+                            <div class="col-12 mb-3 mt-3">
+                                <div class="form-group">
+                                    <label for="type" class="col-2">Type</label>
+                                    <input type="text" class="form-control col-8 form-control-plaintext" name="type"
+                                        readonly [(ngModel)]="instrument.description">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="price" class="col-2">Price</label>
+                                    <input type="number" class="form-control form-control-plaintext col-3" name="price"
+                                        readonly [(ngModel)]="instrument.price">
+                                    <input type="text" class="form-control-plaintext col-4 ml-2" name="price"
+                                        value="$us." readonly>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="storeId" class="col-2">Store Id</label>
+                                    <input type="number" class="form-control form-control-plaintext col-8"
+                                        name="storeId" readonly [(ngModel)]="instrument.storeId">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="image" class="col-2">Image</label>
+                                    <input type="text" class="form-control form-control-plaintext col-8" name="image"
+                                        readonly [(ngModel)]="instrument.imageUrl">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="details" class="col-2">Details</label>
+                                    <textarea cols="30" rows="7" class="form-control form-control-plaintext col-8"
+                                        name="details" readonly [(ngModel)]="instrument.productDetails"></textarea>
+                                </div>
+                            </div>
+                        </h6>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Store Modal -->
+    <div id="editInstrumentModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog " role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title" class="modal-title" style="text-align: center; width: 100%;">UPDATE the
+                        Instrument
+                        with the ID {{instrument.id}} </h3>
+                    <button type="button" class="close" data-dismiss="modal" (click)="onCancel()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="onSubmit(instrument)" class="form-inline">
+                        <div class="col-12 mb-2 offset-1">
+                            <div class="form-group">
+                                <label for="name" class="col-2">Name</label>
+                                <input type="text" class="form-control col-8" name="name" [(ngModel)]="instrument.name">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="address">Address:</label>
-                            <input type="text" readonly class="ml-4 form-control-plaintext" [(ngModel)]="store.address"
-                                name="address">
+                        <div class="col-12 mb-2 offset-1">
+                            <div class="form-group">
+                                <label for="type" class="col-2">Type</label>
+                                <input type="text" class="form-control col-8" name="type"
+                                    [(ngModel)]="instrument.description">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone:</label>
-                            <input type="number" readonly class="ml-4 form-control-plaintext" [(ngModel)]="store.phone"
-                                name="phone">
+                        <div class="col-12 mb-2 offset-1">
+                            <div class="form-group">
+                                <label for="price" class="col-2">Price</label>
+                                <input type="number" class="form-control col-8" name="price"
+                                    [(ngModel)]="instrument.price">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="imgUrl">Image Url:</label>
-                            <input type="text" readonly class="ml-4 form-control" [(ngModel)]="store.imageUrl"
-                                name="imgUrl">
+                        <div class="col-12 mb-2 offset-1">
+                            <div class="form-group">
+                                <label for="imageUrl" class="col-2">Image Url</label>
+                                <input type="text" class="form-control col-8" name="imageUrl"
+                                    [(ngModel)]="instrument.imageUrl">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4 offset-1">
+                            <div class="form-group">
+                                <label for="details" class="col-2">Details</label>
+                                <textarea cols="30" rows="9" class="form-control col-8" name="details"
+                                    [(ngModel)]="instrument.productDetails"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <div class="offset-3" style="text-align: left;">
+                                <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal"
+                                    (click)="onCancel()">Close</button>
+                                <button type="submit" class="btn btn-primary" id="close">Confirmar</button>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-1 offset-3">
+                            <div class="form-group text-end">
+                                <div
+                                    *ngIf="instrument.name != originalInstrument.name || instrument.description != originalInstrument.description || 
+                                    instrument.price != originalInstrument.price || instrument.imageUrl != originalInstrument.imageUrl ||
+                                    instrument.productDetails != originalInstrument.productDetails; else elseBlock">
+                                    <strong>Presione Confirmar para guardar los cambios</strong>
+                                </div>
+                                <ng-template #elseBlock>Ningún cambio sin guardar</ng-template>
+                                <div id="response"></div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>    
-</body>
+    </div>
 
+
+</body>
