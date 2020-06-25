@@ -34,7 +34,6 @@ export class InstrumentsComponent implements OnInit {
 
     this.instrumentService.getInstruments(this.storeId).subscribe( instruments => {
       this.instrumentsList = instruments;
-      console.log(this.instrumentsList);
     });
   }
 
@@ -51,18 +50,22 @@ export class InstrumentsComponent implements OnInit {
   }
 
   onCancel() {
+    
     this.storeService.getStore(this.storeId).subscribe( s => {
       this.store = s;
     });
-    document.getElementById("confirmation-message").innerHTML = "no saved";
+    
+    document.getElementById("response").innerHTML = "";
+    console.log(this.store);
+    console.log(this.originalStore);
   }
 
   onSubmit(updatedStore :Store) {
     this.storeService.updateStore(updatedStore).subscribe( response => {
       if (response) {
-        document.getElementById("confirmation-message").innerHTML = "<h5>Cambios Guardados!!</h5>";
-        document.getElementById("confirmation-message").setAttribute("class", "offset-3 badge badge-success");
-      };
-    });
-  };
+        document.getElementById("response").innerHTML = "<h5>Cambios Guardados!!</h5>";
+      }
+    })
+    this.originalStore = this.store;
+  }
 }

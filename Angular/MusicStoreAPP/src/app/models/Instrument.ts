@@ -4,5 +4,6 @@ export class Instrument {
     description :string;
     price :number;
     imageUrl :string;
+    productDetails :string
     storeId :number;
 }

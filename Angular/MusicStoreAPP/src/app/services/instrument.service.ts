@@ -31,8 +31,10 @@ export class InstrumentService {
     return this.http.post<Instrument>(`${this.storesUrl}/${storeId}/instruments/`, instrumentToAdd, httpOptions);
   }
 
-  updateInstrument(storeId :string, instrumentId :string, instrumentToUpdate :Instrument) :Observable<Instrument> {
-    return this.http.put<Instrument>(`${this.storesUrl}/${storeId}/instruments/${instrumentId}`, instrumentToUpdate, httpOptions);
+  updateInstrument(instrumentToUpdate :Instrument) :Observable<boolean> {
+    console.log(instrumentToUpdate);
+    
+    return this.http.put<boolean>(`${this.storesUrl}/${instrumentToUpdate.storeId}/instruments/${instrumentToUpdate.id}`, instrumentToUpdate, httpOptions);
   }
 
   deleteInstrument(storeId :string, instrumentToDelete :Instrument) :Observable<boolean> {

@@ -41,7 +41,8 @@
         <div class="modal-dialog " role="content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 id="modal-title" class="modal-title" style="text-align: center; width: 100%;">UPDATE the Store with the ID {{store.id}} </h3>
+                    <h3 id="modal-title" class="modal-title" style="text-align: center; width: 100%;">UPDATE the Store
+                        with the ID {{store.id}} </h3>
                     <button type="button" class="close" data-dismiss="modal" (click)="onCancel()">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -82,10 +83,13 @@
                         </div>
                         <div class="col-12 mb-1 offset-3">
                             <div class="form-group text-end">
-                                <div id="confirmation-message" *ngIf="store.name != originalStore.name || store.address != originalStore.address || 
-                                store.phone != originalStore.phone || store.imageUrl != originalStore.imageUrl; else elseBlock"><strong>Presione Confirmar para aceptar los cambios</strong>
+                                <div
+                                    *ngIf="store.name != originalStore.name || store.address != originalStore.address || 
+                                    store.phone != originalStore.phone || store.imageUrl != originalStore.imageUrl; else elseBlock">
+                                    <strong>Presione Confirmar para guardar los cambios</strong>
                                 </div>
-                                <ng-template #elseBlock>Ningún cambio realizado</ng-template>
+                                <ng-template #elseBlock>Ningún cambio sin guardar</ng-template>
+                                <div id="response" class="offset-3 badge badge-success"></div>
                             </div>
                         </div>
                     </form>
