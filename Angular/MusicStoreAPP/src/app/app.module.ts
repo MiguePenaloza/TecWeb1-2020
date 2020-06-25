@@ -13,6 +13,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { InstrumentsComponent } from './components/instruments/instruments.component';
 import { InstrumentItemComponent } from './components/instrument-item/instrument-item.component';
 import { InstrumentEditComponent } from './components/instrument-edit/instrument-edit.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { AddInstrumentComponent } from './components/add-instrument/add-instrument.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { InstrumentEditComponent } from './components/instrument-edit/instrument
     CarouselComponent,
     InstrumentsComponent,
     InstrumentItemComponent,
-    InstrumentEditComponent
+    InstrumentEditComponent,
+    AddStoreComponent,
+    AddInstrumentComponent
   ],
   imports: [
     BrowserModule,
