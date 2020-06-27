@@ -3,11 +3,11 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Store } from '../models/Srore';
 
-const httpOptions = {
+var httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   })
-}
+};
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +19,16 @@ export class StoreService {
   
   constructor(private http :HttpClient) { }
 
-  getStores() :Observable<Store[]> {
+  setJWT(token :string) :void {
+    httpOptions.headers = httpOptions.headers.set("Authorization", `Bearer ${token}`);
+  }
+
+  getStores() :Observable<Store[]> {    
     return this.http.get<Store[]>(this.storesUrl+this.storesQueryParam);
   }
 
   getStore(id :string) :Observable<Store> {
-    return this.http.get<Store>(`${this.storesUrl}/${id}`);
+    return this.http.get<Store>(`${this.storesUrl}/${id}`,httpOptions);
   }
 
   addStore(storeToAdd :Store) :Observable<Store> {
@@ -36,6 +40,6 @@ export class StoreService {
   }
 
   deleteStore(storeToDelete :Store) :Observable<boolean> {
-    return this.http.delete<boolean>(`${this.storesUrl}/${storeToDelete.id}`);
+    return this.http.delete<boolean>(`${this.storesUrl}/${storeToDelete.id}`, httpOptions);
   }
 }

@@ -41,23 +41,20 @@ export class InstrumentEditComponent implements OnInit {
       console.log(response);
       if (response === true) {
         document.getElementById("response").innerHTML = "<h5>Cambios Guardados!!</h5>";
-        document.getElementById("response").setAttribute("class", "offset-3 badge badge-success");
+        document.getElementById("response").setAttribute("class", "badge badge-success");
         this.originalInstrument = this.instrument;
       } 
       
     }, (error) => {
       console.error(error.message);
       if (error.status == 400) {
-        document.getElementById("response").innerHTML = "<h5>Bad Request Error!!</h5>";
-        document.getElementById("response").setAttribute("class", "offset-3 badge badge-danger");
+        document.getElementById("response").innerHTML = "<h5>Campo introducido no valido!!</h5>";
+        document.getElementById("response").setAttribute("class", "badge badge-danger");
       } else if (error.status == 401) {
-        document.getElementById("response").innerHTML = "<h5>Error!!</h5>";
-        document.getElementById("response").setAttribute("class", "offset-5 badge badge-danger");
+        document.getElementById("response").innerHTML = "<h5>No tiene permisos para modificar!!</h5>";
+        document.getElementById("response").setAttribute("class", "badge badge-danger");
       }
-      
-    }
-    )
-    
+    });
   };
 
 }

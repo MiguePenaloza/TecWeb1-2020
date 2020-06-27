@@ -19,6 +19,10 @@ export class InstrumentService {
 
   constructor(private http :HttpClient) { }
 
+  setJWT(token :string) :void {
+    httpOptions.headers = httpOptions.headers.set("Authorization", `Bearer ${token}`);
+  }
+
   getInstruments(storeId :string) :Observable<Instrument[]> {
     return this.http.get<Instrument[]>(`${this.storesUrl}/${storeId}/instruments${this.instrumentsQueryParam}`);
   }
@@ -32,12 +36,10 @@ export class InstrumentService {
   }
 
   updateInstrument(instrumentToUpdate :Instrument) :Observable<boolean> {
-    console.log(instrumentToUpdate);
-    
     return this.http.put<boolean>(`${this.storesUrl}/${instrumentToUpdate.storeId}/instruments/${instrumentToUpdate.id}`, instrumentToUpdate, httpOptions);
   }
 
   deleteInstrument(storeId :string, instrumentToDelete :Instrument) :Observable<boolean> {
-    return this.http.delete<boolean>(`${this.storesUrl}/${storeId}/instruments/${instrumentToDelete.id}`);
+    return this.http.delete<boolean>(`${this.storesUrl}/${storeId}/instruments/${instrumentToDelete.id}`, httpOptions);
   }
 }

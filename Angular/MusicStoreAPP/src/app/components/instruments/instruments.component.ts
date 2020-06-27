@@ -39,10 +39,12 @@ export class InstrumentsComponent implements OnInit {
 
   deleteInstrument(instrumentToDelete: Instrument): void {
     if (confirm('Are you sure you want to delete this Instrument?!')) {
-      this.instrumentsList = this.instrumentsList.filter( instruments => instruments.id != instrumentToDelete.id);
-      //delete from backend
       this.instrumentService.deleteInstrument(this.storeId, instrumentToDelete).subscribe( r => {
-        console.log(r);
+        this.instrumentsList = this.instrumentsList.filter( instruments => instruments.id != instrumentToDelete.id);
+      }, (error) => {
+        if (error.status == 401) {
+          alert("No tiene permisos para eliminar Instruments!!");
+        }
       });
     } else {
       console.log("You cancel the action");
@@ -50,7 +52,6 @@ export class InstrumentsComponent implements OnInit {
   }
 
   onCancel() {
-    
     this.storeService.getStore(this.storeId).subscribe( s => {
       this.store = s;
     });
@@ -64,8 +65,17 @@ export class InstrumentsComponent implements OnInit {
     this.storeService.updateStore(updatedStore).subscribe( response => {
       if (response) {
         document.getElementById("response").innerHTML = "<h5>Cambios Guardados!!</h5>";
+        document.getElementById("response").setAttribute("class", "badge badge-success");
+        this.originalStore = this.store;
       }
+    }, (error) => {
+      if (error.status == 400) {
+        document.getElementById("response").innerHTML = "<h5>Campo introducido no valido!!</h5>";
+        document.getElementById("response").setAttribute("class", "badge badge-danger");
+      } else if (error.status == 401) {
+          document.getElementById("response").innerHTML = "<h5>No tiene permisos para modificar!!</h5>";
+          document.getElementById("response").setAttribute("class", "badge badge-danger");
+        }
     })
-    this.originalStore = this.store;
   }
 }

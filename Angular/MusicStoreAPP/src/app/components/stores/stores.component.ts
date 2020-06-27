@@ -21,10 +21,12 @@ export class StoresComponent implements OnInit {
 
   deleteStore(storeToDelete: Store): void {
     if (confirm('Are you sure you want to delete this Store?!')) {
-      this.storesList = this.storesList.filter(stores => stores.id != storeToDelete.id);
-      //delete from backend
       this.storeService.deleteStore(storeToDelete).subscribe(r => {
-        console.log(r);
+        this.storesList = this.storesList.filter(stores => stores.id != storeToDelete.id);
+      }, (error) => {
+        if (error.status == 401) {
+          alert("No tiene permisos para eliminar Stores!!");
+        }
       });
     } else {
       console.log("You cancel the action");

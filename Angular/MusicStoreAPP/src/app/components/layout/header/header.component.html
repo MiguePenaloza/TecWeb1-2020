@@ -34,58 +34,63 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Link 1</a>
                             <a class="dropdown-item" href="#">Link 2</a>
-                           
+
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item disabled" data-toggle="tooltip" title="Comming soon" href="#" >Link
-                                3 <button disabled="disabled" title="My Tooltip"> 
-                                    Disabled Button 
-                                  </button> </a>
+                            <a class="dropdown-item disabled" data-toggle="tooltip" title="Comming soon" href="#">Link
+                                3 <button disabled="disabled" title="My Tooltip">
+                                    Disabled Button
+                                </button> </a>
                         </div>
                     </div>
                 </div>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a data-toggle="modal" data-target="#loginModal" style="cursor: pointer;"
+                        *ngIf="isLogged == false; else elseBlock">
                         <span id="login" class="fas fa-sign-in-alt"></span> Login</a>
+                    <ng-template #elseBlock>
+                        <a style="cursor: pointer;" (click)="onLogout()">
+                            <span id="login"></span> Sign off <i class="fas fa-sign-out-alt"></i></a>
+                    </ng-template>
                 </span>
             </div>
         </div>
-
-
     </nav>
+
+    <!-- Login Modal  -->
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form (ngSubmit)="onLogin(login)">
                         <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
-                                    placeholder="Enter email">
+                            <div class="form-group col-5">
+                                <label class="sr-only" for="email">Email address</label>
+                                <input type="email" class="form-control" name="email" [(ngModel)]="login.email"
+                                    placeholder="Enter your Email">
                             </div>
-                            <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                                <input type="password" class="form-control form-control-sm mr-1"
-                                    id="exampleInputPassword3" placeholder="Password">
+                            <div class="form-group col-5">
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" class="form-control" name="password" [(ngModel)]="login.password"
+                                    placeholder="Password">
                             </div>
-                            <div class="col-sm-auto">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox">
-                                    <label class="form-check-label"> Remember me
-                                    </label>
-                                </div>
+
+                            <div class="form-group col-12">
+                                <span>Don't have an account? </span>
+                                <a href data-toggle="modal" data-dismiss="modal" data-target="#createAccountModal">
+                                    Create an account
+                                </a>
+                                <button type="button" class="btn btn-secondary offset-4"
+                                    data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary ml-1">Sign in</button>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto"
-                                data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                        <div class="form-group col-12">
+                            <span id="resMessage"></span>
                         </div>
                     </form>
                 </div>
@@ -93,5 +98,47 @@
         </div>
     </div>
 
-    
+    <!-- Create an Account Modal -->
+    <div id="createAccountModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create an Acount </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="onCreateAccount(createUser)">
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label class="sr-only" for="email">Email address</label>
+                                <input type="email" class="form-control mr-1" name="email"
+                                    [(ngModel)]="createUser.email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-4">
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" class="form-control mr-1" name="password"
+                                    [(ngModel)]="createUser.password" placeholder="Password">
+                            </div>
+                            <div class="form-group col-4">
+                                <label class="sr-only" for="confirmPassword">Confirm the Passwod</label>
+                                <input type="password" class="form-control mr-1" name="confirmPassword"
+                                    [(ngModel)]="createUser.confirmPassword" placeholder="Confirm the Password">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary ml-auto"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary ml-1">Create Account</button>
+                        </div>
+                        <div class="form-group col-12">
+                            <span id="resCreateMessage"></span>
+                        </div>
+                        <div class="form-group col-12">
+                            <span id="resErrorsCreateMessage"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>

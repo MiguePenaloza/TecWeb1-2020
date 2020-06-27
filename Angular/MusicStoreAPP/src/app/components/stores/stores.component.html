@@ -1,10 +1,11 @@
 <div>
     <app-carousel></app-carousel>
+    <div class="text-center">
+        <h1>This are the Stores that are available</h1>
+    </div>
+    <app-add-store></app-add-store>
     <div class="flex-container">
-        <app-store-item 
-        *ngFor="let store of storesList" 
-        [storeInput]="store" 
-        (storeDeleteOutput)="deleteStore($event)">
+        <app-store-item *ngFor="let store of storesList" [storeInput]="store" (storeDeleteOutput)="deleteStore($event)">
 
         </app-store-item>
     </div>
