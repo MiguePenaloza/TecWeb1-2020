@@ -16,7 +16,7 @@ namespace MusicStoreAPI.Models
         [Range(0, 1000000)]
         public int? Price { get; set; }
         public string ImageUrl { get; set; }
-        [MaxLength(100, ErrorMessage = "Invalid details length")]
+        [MaxLength(400, ErrorMessage = "Invalid details length")]
         public string ProductDetails { get; set; }
         public int StoreId { get; set; }
     }

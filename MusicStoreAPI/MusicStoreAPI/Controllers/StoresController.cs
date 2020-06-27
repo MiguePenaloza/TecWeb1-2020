@@ -58,7 +58,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<StoreModel>> CreateStoreAsync([FromBody]StoreModel newStore)
         {
@@ -86,7 +86,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPut("{id:int}")]
         public async Task<ActionResult<StoreModel>> UpdateStoreAsync(int id, [FromBody]StoreModel store)
         {
@@ -130,7 +130,7 @@ namespace MusicStoreAPI.Controllers
             }
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<bool>> DeleteStoreAsync(int id)
         {

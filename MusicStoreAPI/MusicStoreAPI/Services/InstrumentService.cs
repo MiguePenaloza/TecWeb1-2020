@@ -90,6 +90,7 @@ namespace MusicStoreAPI.Services
             updateInstrument.Price = instrument.Price ?? actualInstrument.Price;
             updateInstrument.Description = instrument.Description ?? actualInstrument.Description;
             updateInstrument.ImageUrl = instrument.ImageUrl ?? actualInstrument.ImageUrl;
+            updateInstrument.ProductDetails = instrument.ProductDetails ?? actualInstrument.ProductDetails;
 
 
             repository.UpdateInstrument(mapper.Map<InstrumentEntity>(instrument));
