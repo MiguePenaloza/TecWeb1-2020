@@ -14,7 +14,7 @@ namespace MusicStoreAPI.Services
     {
         private IMusicStoreRepository repository;
         private readonly IMapper mapper;
-        private List<string> allowedSortValues = new List<string> { "id", "name", "price", "description", "descriptionAndprice" };
+        private List<string> allowedSortValues = new List<string> { "id", "name", "price", "description", "descriptionandprice" };
 
         public InstrumentService(IMusicStoreRepository repository, IMapper mapper)
         {
