@@ -15,9 +15,13 @@ const httpOptions = {
 export class InstrumentService {
 
   storesUrl :string = 'https://localhost:44317/api/Stores';
-  instrumentsQueryParam :string = '?orderBy=description';
+  instrumentsQueryParam :string = '?orderBy=id';
 
   constructor(private http :HttpClient) { }
+
+  setQueryParam(queryParam :string) {
+    this.instrumentsQueryParam = queryParam;
+  }
 
   setJWT(token :string) :void {
     httpOptions.headers = httpOptions.headers.set("Authorization", `Bearer ${token}`);

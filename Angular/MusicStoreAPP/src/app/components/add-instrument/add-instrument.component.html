@@ -1,1 +1,69 @@
-<p>add-instrument works!</p>
+<body>
+    <div style="position: relative;">
+        <button class="add-icon bg-primary" data-toggle="modal" data-target="#addStoreModal">
+            <i class="fas fa-plus-circle" style="padding-right: 5px;"></i>
+            <i class="fas fa-guitar"></i>
+        </button>
+    </div>
+
+    <!-- Create Store Modal -->
+    <div id="addStoreModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title" class="modal-title" style="text-align: center; width: 100%;">Add a new Instrument
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" (click)="onClose()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4 container">
+                        <div class="img-container">
+                            <div class="img-div">
+                                <img src={{newInstrument.imageUrl}} alt="Image New Instrument">
+                                <div class="description align-middle">
+                                    <h5>
+                                        <form (ngSubmit)="onAddInstrument()">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control offset-1" name="name"
+                                                    [(ngModel)]="newInstrument.name" placeholder="Enter the title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address">Type</label>
+                                                <input type="text" class="form-control offset-1" name="address"
+                                                    [(ngModel)]="newInstrument.description" placeholder="Enter the address">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone">Price</label>
+                                                <input type="number" class="form-control offset-1" name="phone"
+                                                    [(ngModel)]="newInstrument.price" placeholder="Enter the phone number">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="imageUrl">Image Url</label>
+                                                <input type="text" class="form-control offset-1" name="imageUrl"
+                                                    [(ngModel)]="newInstrument.imageUrl" placeholder="Enter the image url">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="details" class="col-2">Details</label>
+                                                    <textarea cols="30" rows="3" class="form-control offset-1"
+                                                        name="details" [(ngModel)]="newInstrument.productDetails"></textarea>
+                                            </div>
+                                            <div class="offset-5">
+                                                <button type="button" class="btn btn-secondary mr-2 ml-1"
+                                                    data-dismiss="modal" (click)="onClose()">Close</button>
+                                                <button type="submit" class="btn btn-primary"
+                                                    >Confirmar</button>
+                                            </div>
+                                        </form>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

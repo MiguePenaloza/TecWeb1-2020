@@ -15,9 +15,13 @@ var httpOptions = {
 export class StoreService {
 
   storesUrl :string = 'https://localhost:44317/api/Stores';
-  storesQueryParam :string = '?orderBy=name';
+  storesQueryParam :string = '?orderBy=id';
   
   constructor(private http :HttpClient) { }
+
+  setQueryParam(queryParam :string) {
+    this.storesQueryParam = queryParam;
+  }
 
   setJWT(token :string) :void {
     httpOptions.headers = httpOptions.headers.set("Authorization", `Bearer ${token}`);

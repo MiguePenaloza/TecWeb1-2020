@@ -7,29 +7,26 @@
                     <i class="far fa-edit"></i>
                 </button>
                 <div class="description">
-                    <h2>Stacked form</h2>
-                    <form class="form-description">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" readonly class="ml-4 form-control-plaintext" [(ngModel)]="store.name"
-                                name="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address:</label>
-                            <input type="text" readonly class="ml-4 form-control-plaintext" [(ngModel)]="store.address"
-                                name="address">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone:</label>
-                            <input type="number" readonly class="ml-4 form-control-plaintext" [(ngModel)]="store.phone"
-                                name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="imgUrl">Image Url:</label>
-                            <input type="text" readonly class="ml-4 form-control" [(ngModel)]="store.imageUrl"
-                                name="imgUrl">
-                        </div>
-                    </form>
+                    <h1>{{store.name}}</h1>
+                    <h5>
+                        <form class="form-description">
+                            <div class="form-group mt-5">
+                                <label for="address">Address:</label>
+                                <input type="text" readonly class="ml-4 form-control-plaintext"
+                                    [(ngModel)]="store.address" name="address">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="phone">Phone:</label>
+                                <input type="number" readonly class="ml-4 form-control-plaintext"
+                                    [(ngModel)]="store.phone" name="phone">
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="imgUrl">Image Url:</label>
+                                <input type="text" readonly class="ml-4 form-control" [(ngModel)]="store.imageUrl"
+                                    name="imgUrl">
+                            </div>
+                        </form>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -89,7 +86,7 @@
                                     <strong>Presione Confirmar para guardar los cambios</strong>
                                 </div>
                                 <ng-template #elseBlock>Ningún cambio sin guardar</ng-template>
-                                
+
                             </div>
                         </div>
                         <div class="col-12 mb-1">
@@ -100,6 +97,26 @@
             </div>
         </div>
     </div>
+
+    <div style="position: relative;">
+        <div class="text-center">
+            <h1>This are the Instruments that we have in our Store</h1>
+        </div>
+        <div class="sortBy">
+            <div class="dropdown">
+                <button class="dropbtn">Sort By</button>
+                <div class="dropdown-content">
+                    <a (click)="orderBy('id')" style="cursor: pointer;">ID</a>
+                    <a (click)="orderBy('name')" style="cursor: pointer;">Name</a>
+                    <a (click)="orderBy('price')" style="cursor: pointer;">Price</a>
+                    <a (click)="orderBy('description')" style="cursor: pointer;">Type</a>
+                    <a (click)="orderBy('descriptionandprice')" style="cursor: pointer;">Type & Price</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-add-instrument (addInstrument)="addInstrumentAndSend($event)"></app-add-instrument>
 
     <div class="flex-container">
         <app-instrument-item *ngFor="let instrument of instrumentsList" [instrumentInput]="instrument"

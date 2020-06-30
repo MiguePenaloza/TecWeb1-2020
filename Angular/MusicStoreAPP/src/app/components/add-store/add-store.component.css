@@ -1,4 +1,4 @@
-.edit {
+.add-icon {
     position: absolute;
     font-size: x-large;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,17 +6,11 @@
     border: none;
     top: -47px;
     right: 100px;
-    padding-right: 2px;
+    padding-right: 5px;
     padding-left: 6px;
     padding-bottom: 3px;
     cursor: pointer;
     z-index: 4;
-}
-
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: green;
 }
 
 .img-container { 
@@ -27,7 +21,7 @@
 }
 
 .img-div {
-    height: 450px;
+    height: 430px;
     width: 820px;
     position: relative;
     background-color: cornsilk;
@@ -35,16 +29,16 @@
 
 .description {
     position: absolute;
-    left: 440px;
+    left: 400px;
     top: 30px;
-}
-
-.form-description {
-    width: 340px;
+    width: 300px;
 }
 
 img { 
+    background-color: cadetblue;
+    position: absolute;
     height: 400px;
     width: 360px;
-    background-color: cadetblue;
+    top: 15px;
+    left: 15px;
 }

@@ -23,6 +23,7 @@ export class StoresComponent implements OnInit {
     if (confirm('Are you sure you want to delete this Store?!')) {
       this.storeService.deleteStore(storeToDelete).subscribe(r => {
         this.storesList = this.storesList.filter(stores => stores.id != storeToDelete.id);
+        alert("Instrument deleted Successfully!!");
       }, (error) => {
         if (error.status == 401) {
           alert("No tiene permisos para eliminar Stores!!");
@@ -32,4 +33,25 @@ export class StoresComponent implements OnInit {
       console.log("You cancel the action");
     }
   }
+
+  addStoreAndSend(storeToAdd :Store) {
+    this.storeService.addStore(storeToAdd).subscribe( store => {
+      this.storesList.push(store);
+      alert("Store created Successfully!!, You can close this form now.");
+    }, (error) => {
+      if (error.status == 401) {
+        alert("No tiene permisos para añadir Stores!!");
+      } else if (error.status == 400) {
+        alert("Campos ingresados invalidos!!");
+      }
+    });
+  }
+
+  orderBy(value :string) {
+    this.storeService.setQueryParam(`?orderBy=${value}`);
+    this.storeService.getStores().subscribe(stores => {
+      this.storesList = stores;
+    });
+  }
 }
+

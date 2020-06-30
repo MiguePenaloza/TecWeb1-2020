@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Instrument } from 'src/app/models/Instrument';
 
 @Component({
   selector: 'app-add-instrument',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddInstrumentComponent implements OnInit {
 
-  constructor() { }
+  newInstrument :Instrument;
+
+  @Output() addInstrument :EventEmitter<Instrument> = new EventEmitter();
+
+  constructor() {
+    this.newInstrument = new Instrument();
+   }
 
   ngOnInit(): void {
+  }
+
+  onClose() {
+    this.newInstrument = new Instrument();
+  }
+
+  onAddInstrument() {
+    this.addInstrument.emit(this.newInstrument);
   }
 
 }

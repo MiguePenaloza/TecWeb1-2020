@@ -1,9 +1,20 @@
 <div>
     <app-carousel></app-carousel>
-    <div class="text-center">
-        <h1>This are the Stores that are available</h1>
+    <div style="position: relative;">
+        <div class="text-center">
+            <h1>This are the Stores that are available</h1>
+        </div>
+        <div class="sortBy">
+            <div class="dropdown">
+                <button class="dropbtn">Sort By</button>
+                <div class="dropdown-content">
+                    <a (click)="orderBy('id')" style="cursor: pointer;">ID</a>
+                    <a (click)="orderBy('name')" style="cursor: pointer;">Name</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <app-add-store></app-add-store>
+    <app-add-store (addStore)="addStoreAndSend($event)"></app-add-store>
     <div class="flex-container">
         <app-store-item *ngFor="let store of storesList" [storeInput]="store" (storeDeleteOutput)="deleteStore($event)">
 

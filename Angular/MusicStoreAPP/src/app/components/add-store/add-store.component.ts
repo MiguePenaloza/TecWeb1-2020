@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Store } from 'src/app/models/Srore';
 
 @Component({
@@ -10,6 +10,8 @@ export class AddStoreComponent implements OnInit {
 
   newStore :Store;
 
+  @Output() addStore :EventEmitter<Store> = new EventEmitter();
+
   constructor() { 
     this.newStore = new Store();
   }
@@ -17,24 +19,11 @@ export class AddStoreComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCancel() {
-    // this.storeService.getStore(this.storeId).subscribe( s => {
-    //   this.store = s;
-    // });
-    
-    // document.getElementById("response").innerHTML = "";
-    // console.log(this.store);
-    // console.log(this.originalStore);
+  onClose() {
+    this.newStore = new Store();
   }
 
-  onSubmit() {
-  //   this.storeService.updateStore(updatedStore).subscribe( response => {
-  //     if (response) {
-  //       document.getElementById("response").innerHTML = "<h5>Cambios Guardados!!</h5>";
-  //     }
-  //   })
-  //   this.originalStore = this.store;
-  console.log(this.newStore);
-  
+  onAddStore() {
+    this.addStore.emit(this.newStore);
   }
 }
