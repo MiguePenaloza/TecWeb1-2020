@@ -117,6 +117,7 @@ export class HeaderComponent implements OnInit {
       this.authService.registerUser(newUser).subscribe( r => {
         document.getElementById("resCreateMessage").innerHTML = `<h6>${r.message}!!</h6>`;
         document.getElementById("resCreateMessage").setAttribute("class", "badge badge-success");
+        document.getElementById("resErrorsCreateMessage").innerHTML = "";
       }, (error) => {
         if (error.status == 400) {
           document.getElementById("resCreateMessage").innerHTML = `<h6>${error.error.message}!!</h6>`;

@@ -1,7 +1,7 @@
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: green;
+    background-color: #EAEDED;
 }
 
 .sortBy {
